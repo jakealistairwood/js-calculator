@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right bottom, #5c258d, #354aa3, #0063aa, #0978a8, #4389a2);
+    min-height: 100vh;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Space Mono', monospace;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    left: 25%;
+    color: #44FFD2;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    padding-top: 50px;
+}
+
+span {
+    font-weight: 400;
+}
+
+/* Calculator */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.calculator__container {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    height: 600px;
+    width: 450px;
+}
+
+.calculator__grid {
+    display: grid;
+    justify-content: center;
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+    grid-template-areas: 
+    "out out out out"
+    "ac ac ac div"
+    "seven eight nine multi"
+    "four five six subt"
+    "one two three addt"
+    "zer zer dec sum";
+}
+
+.calculator__grid > button {
+    border-radius: 200px;
+    font-size: 1.5rem;
+    color: #FFF;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.orange {
+    background-color: #FE842E;
+}
+
+.darkgrey {
+    background-color: skyblue;
+}
+
+.container__output-field {
+    grid-area: out;
+}
+
+.calculator__ac {
+    grid-area: ac;
+    background-color: #A0A0A0;
+}
+
+#calculator__divide {
+    grid-area: div;
+}
+#calculator__seven {
+    grid-area: seven;
+}
+#calculator__eight {
+    grid-area: eight;
+}
+#calculator__nine {
+    grid-area: nine;
+}
+#calculator__multiply {
+    grid-area: multi;
+}
+#calculator__four {
+    grid-area: four;
+}
+#calculator__five {
+    grid-area: five;
+}
+#calculator__six {
+    grid-area: six;
+}
+#calculator__subtract {
+    grid-area: subt;
+}
+#calculator__one {
+    grid-area: one;
+}
+#calculator__two {
+    grid-area: two;
+}
+#calculator__three {
+    grid-area: three;
+}
+#calculator__add {
+    grid-area: addt;
+}
+#calculator__zero {
+    grid-area: zer;
+}
+.calculator__decimal {
+    grid-area: dec;
+}
+.calculator__sum {
+    grid-area: sum;
+}
+
+.calculator__display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 1.5rem;
+    height: 50px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 450px) {
+    body {
+        
+    }
+    
+    h1 {
+        display: none;
+    }
+
+    .darkgrey {
+        background-color: rgb(45, 45, 45)!important;
+    }
+    
+    .calculator__container {
+        height: 100vh;
+        width: 100%;
+        border-radius: 0px;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .calculator__display {
+        height: 70px;
+        margin-bottom: 40px;
+    }
+}
