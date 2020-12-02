@@ -62,8 +62,8 @@ header {
 
         .calculator__grid {
             display: grid;
-            height: 70%;
             grid-template-columns: repeat(4, auto);
+            grid-gap: 1em;
             grid-template-areas: 
             "ac ac ac div"
             "seven eight nine times"
@@ -71,7 +71,29 @@ header {
             "one two three plus"
             "nought dec . equals";
 
-            #ac {grid-area: ac}
+            button {
+                height: 70px;
+                width: 70px;
+                border-radius: 50%;
+                font-size: 1.4rem;
+                cursor: pointer;
+            }
+
+            .calculator__operBtn {
+                background-color: $lightGrey;
+                color: $bgColor;
+            }
+
+            .calculator__numBtn {
+                color: $lightGrey;
+            }
+
+            #ac {
+                grid-area: ac;
+                color: $purple;
+                letter-spacing: 0.1em;
+                width: 100%;
+            }
             #div {grid-area: div}
             #seven {grid-area: seven}
             #eight {grid-area: eight}
@@ -85,10 +107,14 @@ header {
             #three {grid-area: three}
             #plus {grid-area: plus}
             #zero {grid-area: nought}
-            #dec {grid-area: dec}
+            #dec {
+                grid-area: dec;
+                color: $lightGrey;
+            }
             #equals {
                 grid-area: equals;
                 background-color: $purple;
+                color: $lightGrey;
             }
 
         }

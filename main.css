@@ -64,12 +64,29 @@ header h1 {
 }
 .calculator .calculator__container .calculator__grid {
   display: grid;
-  height: 70%;
   grid-template-columns: repeat(4, auto);
+  grid-gap: 1em;
   grid-template-areas: "ac ac ac div" "seven eight nine times" "four five six sub" "one two three plus" "nought dec . equals";
+}
+.calculator .calculator__container .calculator__grid button {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.calculator .calculator__container .calculator__grid .calculator__operBtn {
+  background-color: #b7b7b9;
+  color: #292631;
+}
+.calculator .calculator__container .calculator__grid .calculator__numBtn {
+  color: #b7b7b9;
 }
 .calculator .calculator__container .calculator__grid #ac {
   grid-area: ac;
+  color: #7248f5;
+  letter-spacing: 0.1em;
+  width: 100%;
 }
 .calculator .calculator__container .calculator__grid #div {
   grid-area: div;
@@ -112,8 +129,10 @@ header h1 {
 }
 .calculator .calculator__container .calculator__grid #dec {
   grid-area: dec;
+  color: #b7b7b9;
 }
 .calculator .calculator__container .calculator__grid #equals {
   grid-area: equals;
   background-color: #7248f5;
+  color: #b7b7b9;
 }
