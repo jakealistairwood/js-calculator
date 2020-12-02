@@ -32,6 +32,11 @@ header {
   width: 100%;
   margin-bottom: 50px;
 }
+@media only screen and (max-width: 500px) {
+  header {
+    display: none;
+  }
+}
 header h1 {
   text-align: center;
   color: #f0f0f0;
@@ -43,6 +48,12 @@ header h1 {
   justify-content: center;
   width: 100%;
 }
+@media only screen and (max-width: 500px) {
+  .calculator {
+    height: 100vh;
+    width: 100%;
+  }
+}
 .calculator .calculator__container {
   display: flex;
   padding: 20px;
@@ -52,6 +63,12 @@ header h1 {
   width: 400px;
   background-color: #292631;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);
+}
+@media only screen and (max-width: 500px) {
+  .calculator .calculator__container {
+    height: 100vh;
+    width: 100%;
+  }
 }
 .calculator .calculator__container .calculator__output {
   display: flex;
