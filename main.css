@@ -44,8 +44,7 @@ main {
 .calculator__container {
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 30px;
+    background-color: #292631;
     height: 600px;
     width: 450px;
 }
@@ -68,21 +67,23 @@ main {
     "zer zer dec sum";
 }
 
+.calculator__numBtn { 
+    color: rgb(183, 183, 185);
+    background-color: #292631;
+}
+
 .calculator__grid > button {
     border-radius: 200px;
     font-size: 1.5rem;
-    color: #FFF;
     cursor: pointer;
     outline: none;
     border: none;
+    height: 70px;
+    width: 70px;
 }
 
 .orange {
-    background-color: #FE842E;
-}
-
-.darkgrey {
-    background-color: skyblue;
+    background-color: #b7b7b9;
 }
 
 .container__output-field {
@@ -91,7 +92,18 @@ main {
 
 .calculator__ac {
     grid-area: ac;
-    background-color: #A0A0A0;
+    background-color: #292631;
+    color: rgb(114, 72, 245);
+}
+
+.calculator__decimal {
+    background-color: #292631;
+    color: #b7b7b9;
+}
+
+.calculator__sum {
+    background-color: #7248f5;
+    color: #f0f0f0;
 }
 
 #calculator__divide {
@@ -159,9 +171,6 @@ main {
 /* Media Queries */
 
 @media only screen and (max-width: 450px) {
-    body {
-        
-    }
     
     h1 {
         display: none;
