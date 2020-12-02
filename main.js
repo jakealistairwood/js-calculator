@@ -1,109 +1,74 @@
-/* =================================================================================
-                                   VARIABLES
-================================================================================= */
+/* DOM Elements */
 
 const numberBtns = document.querySelectorAll('.calculator__numBtn');
-const operBtns = document.querySelectorAll('.calculator__operBtn');
+const operatorBtns = document.querySelectorAll('.calculator__operBtn');
 const acBtn = document.querySelector('.calculator__ac');
 const sumBtn = document.querySelector('.calculator__sum');
-
 const displayField = document.querySelector('.calculator__display');
 
-console.log(numberBtns);
-console.log(operBtns);
-console.log(displayField);
+/* Resuable functions */
+const updateOutput = (number) => displayField.innerHTML = number;
 
-let sum = [];
-let secondaryValue = "";
+/* Variables */
 
-// Number Buttons
+let initialNumber = "";
+let operator = "";
+let secondaryNumber = "";
+let storedNumber = 0;
+let sum = 0;
+
 numberBtns.forEach(numBtn => {
     numBtn.addEventListener('click', (event) => {
-        const num = event.target;
-        const numValue = num.innerHTML;
-        const initialValue = displayField.innerHTML;
+        (!initialNumber) ? initialNumber = event.target.innerHTML : initialNumber += event.target.innerHTML;
+        updateOutput(initialNumber);
+    })
+})
 
-        if (initialValue === '0') {
-            displayField.innerHTML = numValue;
-        } else {
-            displayField.innerHTML = initialValue + numValue;
+operatorBtns.forEach(operBtn => {
+    operBtn.addEventListener('click', (event) => {
+        operator = event.target.value;
+        console.log(operator);
+
+        if (initialNumber) {
+            storedNumber = parseFloat(initialNumber);
+            initialNumber= "";
         }
     })
 })
 
-// Operator Buttons
-operBtns.forEach(operBtn => {
-    operBtn.addEventListener('click', (event) => {
-        console.log(event.target);
-        const oper = event.target;
-        const operValue = oper.innerHTML;
-        console.log(operValue);
-    })
-})
-
-
-// Clear Button 
-acBtn.addEventListener('click', () => {
-    displayField.innerHTML = '0';
-    sum = [];
-})
-
-// Sum Button
 sumBtn.addEventListener('click', () => {
-    if (operValue === "+") {
-        let sum = initialValue + secondaryValue;
-        console.log(sum);
-        return;
-    }
-})
+    if (!initialNumber) secondaryNumber === "" ? initialNumber = storedNumber : initialNumber = secondaryNumber;
 
-
-
-// numberBtns.addEventListener('click', (event) => {
-//     const num = event.target;
-//     const numValue = num.innerHTML;
-//     const displayOutput = displayField.innerHTML;
-
-//     if (displayOutput === '0') {
-//         displayField.innerHTML = numValue;
-//     } else {
-//         displayField.innerHTML = displayOutput + numValue;
-//     }
-// })
-
-
-
-// const updateDisplay = () => {
-//     let initialOutput = displayField.innerHTML;
-
-//     if (initialOutput === '0') {
-//         initialOutput == '';
-//     }
-// }
-
-
-const calculate = (initialValue, operValue, secondaryValue) => {
-    let result;
-    switch(operValue) {
-        case "+":
-            result = initialValue + secondaryValue;
+    switch(operator) {
+        case "add" : 
+            sum = storedNumber + parseFloat(initialNumber); 
             break;
-        case "-":
-            result = initialValue - secondaryValue;
+        case "substract" : 
+            sum = storedNumber - parseFloat(initialNumber); 
             break;
-        case "*":
-            result = initialValue * secondaryValue;
+        case "multiply" : 
+            sum = storedNumber * parseFloat(initialNumber); 
             break;
-        case "/":
-            result = initialValue / secondaryValue;
+        case "divide" : 
+            sum = storedNumber / parseFloat(initialNumber); 
             break;
         default:
-            result = "Not a valid operater";
+            "Sorry invalid operator!";
             break;
     }
-    return result;
-}
+    updateOutput(sum);
+    storedNumber = sum;
+    secondaryNumber = initialNumber;
+    initialNumber = "";
+})
 
+acBtn.addEventListener('click', () => {
+    const clearOutput = () => {
+        updateOutput(0);
+        sum = [];
+    }
+    clearOutput();
+})
 
 
 
